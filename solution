@@ -1,0 +1,11 @@
+SELECT
+  "transaction_time"::date AS "date",
+  AVG("transaction_amount") AS "rolling_average"
+FROM
+  transactions
+WHERE
+  "transaction_time"::date BETWEEN '2021-01-29' AND '2021-01-31'
+GROUP BY
+  "date"
+HAVING
+  COUNT(*) = 3;
